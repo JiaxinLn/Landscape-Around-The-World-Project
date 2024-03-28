@@ -1,0 +1,77 @@
+<!DOCTYPE html> <html><head>
+  <title>Landscape Around The World Project</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+<style>body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: url(https://freeppt7.com/uploads/180910/1-1P910103309134.JPG);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: black;
+    }
+
+    .picture {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .gallery img {
+      height: 200px;
+      border: 3px double black;
+    }
+
+    .gallery p {
+      text-align: center;
+      margin-top: 0;
+    }</style></head>
+<body>
+  <h1>Awe-inspiring Landscapes Around the World</h1>
+
+  <div class="gallery">
+    <!-- Existing images go here -->
+  </div>
+
+  <p>New picture: <input class="picture-url" size="60"></p>
+  <p>Caption: <input class="picture-caption" size="60"></p>
+  <button class="add">Add New Image</button>
+  <button class="delete">Delete Last Image</button>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+
+
+<script>
+/*__POPCODESTART__*/
+var landscape = ["https://external-preview.redd.it/grass-slides-in-hulunbuir-prairie-inner-mongolia-v0-CKA_-aOGW-Z66Yupw-tsWqG07XHiLhGZMuqAS-tObZU.png?format=pjpg&auto=webp&s=922e2dd7a2ee76da686e8f1440bc62918e38e350", "https://lh3.googleusercontent.com/p/AF1QipOQsElfK1E8wqF9i4qpikFliO9q_dxavBHnK1hh=s680-w680-h510", "https://images.prismic.io/visiticeland/db573a32-bb7d-4ef7-9101-2fdb13441150_Silfra-fissure-Thingvellir.jpg?auto=compress,format"];
+
+for (var i = 0; i < landscape.length; i++) {
+  $(".gallery").append("<div class='picture'><img src=" + landscape[i] + "><p>" + getCaption(i) + "</p></div>");
+}
+
+$(".add").click(function () {
+  var landpics = $(".picture-url").val();
+  var caption = $(".picture-caption").val();
+
+  if (landpics && caption) {
+    landscape.push(landpics);
+    $(".gallery").append("<div class='picture'><img src=" + landpics + "><p>" + caption + "</p></div>");
+    $(".picture-url, .picture-caption").val("");
+  } else {
+    alert("Please enter both a picture URL and a caption.");
+  }
+});
+
+function getCaption(index) {
+  return "";
+}
+
+$(".delete").click(function () {
+  if (landscape.length > 0) {
+    landscape.pop();
+    $(".gallery").children().last().remove();
+  } else {
+    alert("There are no images to delete.");
+  }
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbImxhbmRzY2FwZSIsImkiLCJsZW5ndGgiLCIkIiwiYXBwZW5kIiwiZ2V0Q2FwdGlvbiIsImNsaWNrIiwibGFuZHBpY3MiLCJ2YWwiLCJjYXB0aW9uIiwicHVzaCIsImFsZXJ0IiwiaW5kZXgiLCJwb3AiLCJjaGlsZHJlbiIsImxhc3QiLCJyZW1vdmUiXSwibWFwcGluZ3MiOiJBQUFBLElBQUlBLFNBQVMsR0FBRyxDQUNkLHVNQURjLEVBRWQsaUdBRmMsRUFHZCxpSUFIYyxDQUFoQjs7QUFNQSxLQUFLLElBQUlDLENBQUMsR0FBRyxDQUFiLEVBQWdCQSxDQUFDLEdBQUdELFNBQVMsQ0FBQ0UsTUFBOUIsRUFBc0NELENBQUMsRUFBdkMsRUFBMkM7QUFDekNFLEVBQUFBLENBQUMsQ0FBQyxVQUFELENBQUQsQ0FBY0MsTUFBZCxDQUFxQixtQ0FBbUNKLFNBQVMsQ0FBQ0MsQ0FBRCxDQUE1QyxHQUFrRCxNQUFsRCxHQUEyREksVUFBVSxDQUFDSixDQUFELENBQXJFLEdBQTJFLFlBQWhHO0FBQ0Q7O0FBRURFLENBQUMsQ0FBQyxNQUFELENBQUQsQ0FBVUcsS0FBVixDQUFnQixZQUFXO0FBQ3pCLE1BQUlDLFFBQVEsR0FBR0osQ0FBQyxDQUFDLGNBQUQsQ0FBRCxDQUFrQkssR0FBbEIsRUFBZjtBQUNBLE1BQUlDLE9BQU8sR0FBR04sQ0FBQyxDQUFDLGtCQUFELENBQUQsQ0FBc0JLLEdBQXRCLEVBQWQ7O0FBRUEsTUFBSUQsUUFBUSxJQUFJRSxPQUFoQixFQUF5QjtBQUN2QlQsSUFBQUEsU0FBUyxDQUFDVSxJQUFWLENBQWVILFFBQWY7QUFDQUosSUFBQUEsQ0FBQyxDQUFDLFVBQUQsQ0FBRCxDQUFjQyxNQUFkLENBQXFCLG1DQUFtQ0csUUFBbkMsR0FBOEMsTUFBOUMsR0FBdURFLE9BQXZELEdBQWlFLFlBQXRGO0FBQ0FOLElBQUFBLENBQUMsQ0FBQyxnQ0FBRCxDQUFELENBQW9DSyxHQUFwQyxDQUF3QyxFQUF4QztBQUNELEdBSkQsTUFJTztBQUNMRyxJQUFBQSxLQUFLLENBQUMsZ0RBQUQsQ0FBTDtBQUNEO0FBQ0YsQ0FYRDs7QUFhQSxTQUFTTixVQUFULENBQW9CTyxLQUFwQixFQUEyQjtBQUN6QixTQUFPLEVBQVA7QUFDRDs7QUFDRFQsQ0FBQyxDQUFDLFNBQUQsQ0FBRCxDQUFhRyxLQUFiLENBQW1CLFlBQVc7QUFDNUIsTUFBSU4sU0FBUyxDQUFDRSxNQUFWLEdBQW1CLENBQXZCLEVBQTBCO0FBQ3hCRixJQUFBQSxTQUFTLENBQUNhLEdBQVY7QUFDQVYsSUFBQUEsQ0FBQyxDQUFDLFVBQUQsQ0FBRCxDQUFjVyxRQUFkLEdBQXlCQyxJQUF6QixHQUFnQ0MsTUFBaEM7QUFDRCxHQUhELE1BR087QUFDTEwsSUFBQUEsS0FBSyxDQUFDLGdDQUFELENBQUw7QUFDRDtBQUNGLENBUEQiLCJzb3VyY2VzQ29udGVudCI6WyJsZXQgbGFuZHNjYXBlID0gW1xuICBcImh0dHBzOi8vZXh0ZXJuYWwtcHJldmlldy5yZWRkLml0L2dyYXNzLXNsaWRlcy1pbi1odWx1bmJ1aXItcHJhaXJpZS1pbm5lci1tb25nb2xpYS12MC1DS0FfLWFPR1ctWjY2WXVwdy10c1dxRzA3WEhpTGhHWk11cUFTLXRPYlpVLnBuZz9mb3JtYXQ9cGpwZyZhdXRvPXdlYnAmcz05MjJlMmRkN2EyZWU3NmRhNjg2ZThmMTQ0MGJjNjI5MThlMzhlMzUwXCIsXG4gIFwiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL3AvQUYxUWlwT1FzRWxmSzFFOHdxRjlpNHFwaWtGbGlPOXFfZHhhdkJIbksxaGg9czY4MC13NjgwLWg1MTBcIixcbiAgXCJodHRwczovL2ltYWdlcy5wcmlzbWljLmlvL3Zpc2l0aWNlbGFuZC9kYjU3M2EzMi1iYjdkLTRlZjctOTEwMS0yZmRiMTM0NDExNTBfU2lsZnJhLWZpc3N1cmUtVGhpbmd2ZWxsaXIuanBnP2F1dG89Y29tcHJlc3MsZm9ybWF0XCJcbl07XG5cbmZvciAobGV0IGkgPSAwOyBpIDwgbGFuZHNjYXBlLmxlbmd0aDsgaSsrKSB7XG4gICQoXCIuZ2FsbGVyeVwiKS5hcHBlbmQoXCI8ZGl2IGNsYXNzPSdwaWN0dXJlJz48aW1nIHNyYz1cIiArIGxhbmRzY2FwZVtpXSArIFwiPjxwPlwiICsgZ2V0Q2FwdGlvbihpKSArIFwiPC9wPjwvZGl2PlwiKTtcbn1cblxuJChcIi5hZGRcIikuY2xpY2soZnVuY3Rpb24oKSB7XG4gIGxldCBsYW5kcGljcyA9ICQoXCIucGljdHVyZS11cmxcIikudmFsKCk7XG4gIGxldCBjYXB0aW9uID0gJChcIi5waWN0dXJlLWNhcHRpb25cIikudmFsKCk7XG5cbiAgaWYgKGxhbmRwaWNzICYmIGNhcHRpb24pIHtcbiAgICBsYW5kc2NhcGUucHVzaChsYW5kcGljcyk7XG4gICAgJChcIi5nYWxsZXJ5XCIpLmFwcGVuZChcIjxkaXYgY2xhc3M9J3BpY3R1cmUnPjxpbWcgc3JjPVwiICsgbGFuZHBpY3MgKyBcIj48cD5cIiArIGNhcHRpb24gKyBcIjwvcD48L2Rpdj5cIik7XG4gICAgJChcIi5waWN0dXJlLXVybCwgLnBpY3R1cmUtY2FwdGlvblwiKS52YWwoXCJcIik7XG4gIH0gZWxzZSB7XG4gICAgYWxlcnQoXCJQbGVhc2UgZW50ZXIgYm90aCBhIHBpY3R1cmUgVVJMIGFuZCBhIGNhcHRpb24uXCIpO1xuICB9XG59KTtcblxuZnVuY3Rpb24gZ2V0Q2FwdGlvbihpbmRleCkge1xuICByZXR1cm4gXCJcIjtcbn1cbiQoXCIuZGVsZXRlXCIpLmNsaWNrKGZ1bmN0aW9uKCkge1xuICBpZiAobGFuZHNjYXBlLmxlbmd0aCA+IDApIHtcbiAgICBsYW5kc2NhcGUucG9wKCk7XG4gICAgJChcIi5nYWxsZXJ5XCIpLmNoaWxkcmVuKCkubGFzdCgpLnJlbW92ZSgpO1xuICB9IGVsc2Uge1xuICAgIGFsZXJ0KFwiVGhlcmUgYXJlIG5vIGltYWdlcyB0byBkZWxldGUuXCIpO1xuICB9XG59KTsiXX0=</script></body></html>
