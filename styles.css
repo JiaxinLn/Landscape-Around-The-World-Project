@@ -1,0 +1,24 @@
+body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: url(https://freeppt7.com/uploads/180910/1-1P910103309134.JPG);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: black;
+    }
+
+    .picture {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .gallery img {
+      height: 200px;
+      border: 3px double black;
+    }
+
+    .gallery p {
+      text-align: center;
+      margin-top: 0;
+    }
