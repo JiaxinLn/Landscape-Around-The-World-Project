@@ -1,1 +1,0 @@
-# Landscape-Around-The-World-Project
